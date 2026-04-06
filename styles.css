@@ -142,6 +142,9 @@ h1 {
   height: var(--cell-size);
   background: var(--cell);
   border-radius: 8px;
+  display: grid;
+  place-items: center;
+  font-size: calc(var(--cell-size) * 0.7);
 }
 
 .cell--snake {
@@ -154,7 +157,7 @@ h1 {
 }
 
 .cell--food {
-  background: radial-gradient(circle at 30% 30%, #ffd166, var(--food));
+  background: #fff3e2;
 }
 
 .overlay {

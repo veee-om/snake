@@ -57,6 +57,8 @@ function render() {
 
       if (state.food && state.food.x === x && state.food.y === y) {
         cell.classList.add("cell--food");
+        cell.textContent = "🍩";
+        cell.setAttribute("aria-label", "Food");
       }
 
       if (snakeLookup.has(key)) {
