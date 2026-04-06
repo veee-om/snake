@@ -1,14 +1,14 @@
 :root {
   color-scheme: light;
-  --bg: #f4efe6;
-  --panel: #fffaf2;
-  --panel-border: #d8cbb8;
-  --text: #2d2418;
-  --muted: #6f6254;
-  --snake: #356859;
-  --snake-head: #23443b;
-  --food: #c8553d;
-  --cell: #efe4d3;
+  --bg: #f6e7d8;
+  --panel: #fff7ef;
+  --panel-border: #d59b6a;
+  --text: #2c1b24;
+  --muted: #7d5a54;
+  --snake: #2f7f6d;
+  --snake-head: #174f47;
+  --food: #ff6b35;
+  --cell: #ffd9b8;
   --cell-size: min(7vw, 24px);
 }
 
@@ -19,8 +19,11 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
-  background: var(--bg);
+  font-family: "Trebuchet MS", "Avenir Next", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.6), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(255, 162, 82, 0.22), transparent 28%),
+    linear-gradient(135deg, #f6e7d8 0%, #f2c078 100%);
   color: var(--text);
 }
 
@@ -33,11 +36,13 @@ body {
 
 .game-shell {
   width: min(100%, 640px);
-  background: var(--panel);
-  border: 1px solid var(--panel-border);
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 10px 30px rgba(45, 36, 24, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 247, 239, 0.96)),
+    var(--panel);
+  border: 2px solid var(--panel-border);
+  border-radius: 24px;
+  padding: 22px;
+  box-shadow: 0 18px 40px rgba(86, 45, 8, 0.16);
 }
 
 .hud,
@@ -57,13 +62,14 @@ body {
   margin: 0 0 4px;
   font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.14em;
   color: var(--muted);
 }
 
 h1 {
   margin: 0;
-  font-size: 2rem;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  line-height: 0.95;
 }
 
 .stats {
@@ -74,9 +80,9 @@ h1 {
 .stat {
   min-width: 92px;
   padding: 10px 12px;
-  border: 1px solid var(--panel-border);
-  border-radius: 12px;
-  background: #fff;
+  border: 2px solid rgba(213, 155, 106, 0.65);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.8);
 }
 
 .stat span {
@@ -97,17 +103,18 @@ h1 {
 
 .button {
   appearance: none;
-  border: 1px solid var(--panel-border);
-  background: #fff;
+  border: 2px solid #b76b45;
+  background: linear-gradient(180deg, #fff4dd, #ffd8a8);
   color: var(--text);
-  border-radius: 10px;
+  border-radius: 999px;
   padding: 10px 14px;
   font: inherit;
+  font-weight: 700;
   cursor: pointer;
 }
 
 .button:hover {
-  background: #f9f4ec;
+  background: linear-gradient(180deg, #fff7e7, #ffcf95);
 }
 
 .board {
@@ -118,9 +125,10 @@ h1 {
   width: fit-content;
   margin: 0 auto;
   padding: 8px;
-  background: #e6d8c4;
-  border-radius: 14px;
-  border: 1px solid var(--panel-border);
+  background:
+    linear-gradient(180deg, rgba(255, 245, 228, 0.88), rgba(255, 215, 167, 0.9));
+  border-radius: 22px;
+  border: 2px solid rgba(183, 107, 69, 0.55);
 }
 
 .board-wrap {
@@ -133,19 +141,20 @@ h1 {
   width: var(--cell-size);
   height: var(--cell-size);
   background: var(--cell);
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 .cell--snake {
-  background: var(--snake);
+  background: linear-gradient(180deg, #49a58e, var(--snake));
 }
 
 .cell--head {
-  background: var(--snake-head);
+  background: linear-gradient(180deg, #20685d, var(--snake-head));
+  box-shadow: inset 0 0 0 2px rgba(255, 238, 205, 0.35);
 }
 
 .cell--food {
-  background: var(--food);
+  background: radial-gradient(circle at 30% 30%, #ffd166, var(--food));
 }
 
 .overlay {
@@ -154,8 +163,8 @@ h1 {
   display: grid;
   place-items: center;
   padding: 16px;
-  background: rgba(113, 28, 28, 0.18);
-  border-radius: 14px;
+  background: rgba(131, 38, 28, 0.24);
+  border-radius: 22px;
 }
 
 .overlay[hidden] {
@@ -166,17 +175,17 @@ h1 {
   width: min(100%, 260px);
   padding: 16px;
   text-align: center;
-  background: rgba(255, 248, 245, 0.96);
-  border: 1px solid #d59b92;
-  border-radius: 14px;
-  box-shadow: 0 12px 24px rgba(68, 18, 18, 0.14);
+  background: rgba(255, 247, 238, 0.98);
+  border: 2px solid #d07a5f;
+  border-radius: 18px;
+  box-shadow: 0 16px 30px rgba(68, 18, 18, 0.18);
 }
 
 .overlay__eyebrow {
   margin: 0 0 6px;
   font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   color: #9f4537;
 }
 

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Snake</title>
+    <title>Vyom's Snake Hub</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -11,8 +11,8 @@
       <section class="game-shell" aria-label="Snake game">
         <header class="hud">
           <div>
-            <p class="eyebrow">Classic Mode</p>
-            <h1>Snake</h1>
+            <p class="eyebrow">Arcade Garden</p>
+            <h1>Vyom's Snake Hub</h1>
           </div>
           <div class="stats" aria-live="polite">
             <div class="stat">
@@ -28,7 +28,7 @@
 
         <section class="controls-row">
           <p class="instructions">
-            Use arrow keys or WASD to move. Press space to pause and restart after game over.
+            Slip around with arrow keys or WASD. Press space to pause, then dive back in when you're ready.
           </p>
           <button id="restart-button" class="button" type="button">Restart</button>
         </section>
@@ -37,9 +37,9 @@
           <div id="board" class="board" role="grid" aria-label="Snake board"></div>
           <div id="game-over-overlay" class="overlay" hidden>
             <div class="overlay__card" role="alert" aria-live="assertive">
-              <p class="overlay__eyebrow">Game Over</p>
-              <h2>You hit yourself</h2>
-              <p>Press restart or tap space to play again.</p>
+              <p class="overlay__eyebrow">Round Over</p>
+              <h2>The snake tied itself in a knot</h2>
+              <p>Press restart or tap space to spin up a fresh run.</p>
             </div>
           </div>
         </div>
